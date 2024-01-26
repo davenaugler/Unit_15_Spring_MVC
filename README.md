@@ -12,8 +12,12 @@
 `spring.thymeleaf.prefix=file:src/main/resources/templates/`
 - Completed the MVC (Model View Controller) pieces
 
-
 ## 03 - PostMapping with a Regular Controller
+- The domain package represents content that'll be going to the database
+- Difference between domain package and dto package
+- domain objects get stored in a database and retrieved from a database
+- dto is an object that's not persisted from a database. It's just used to transfer data from 
+  one place to another through an API
 
 ## 04 - Using Thymeleaf Fields
 
