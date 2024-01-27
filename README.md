@@ -18,6 +18,9 @@
 - domain objects get stored in a database and retrieved from a database
 - dto is an object that's not persisted from a database. It's just used to transfer data from 
   one place to another through an API
+- Removed static content from the controller
+- Created a Person object and put a System.out in the postRootWebPage method
+- 
 
 ## 04 - Using Thymeleaf Fields
 
