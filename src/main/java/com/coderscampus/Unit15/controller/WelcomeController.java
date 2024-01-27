@@ -11,14 +11,6 @@ public class WelcomeController {
     @GetMapping("")
     //    Spring initializes the  (      model )  for us so we don't get a null pointer exception
     public String getRootWebPage(ModelMap model) {
-        // Returns location of the HTML file
-        // This is what get's returned/resolved when we
-        // return a String inside of a regular Controller @GetMapping method
-        // The return will go to..../src/main/resources/templates/{fileName_here}.html
-//        String firstName = "Johnny";
-//        String lastName = "Bananas";
-//        model.put("firstName", firstName);
-//        model.put("lastName", lastName);
 
         Person person = new Person();
         //       (  key   , value );  onto the model
@@ -34,6 +26,8 @@ public class WelcomeController {
     @PostMapping("")
     public String postRootWebPage(Person person) {
         System.out.println("Returning person object: " + person);
-        return "welcome";
+        // This "redirect:/" tells PostMapping to load the root again.
+        // The root being the GetMapping(""), above
+        return "redirect:/";
     }
 }
