@@ -14,12 +14,6 @@
     <div class="container">
         <h1 class="title">People</h1>
     </div>
-
-
-
-
-
-
     <div class="container">
         <form action="" method="post">
             <input th:field="${person.id}" type="hidden">
@@ -35,9 +29,7 @@
             <div>
                 <button class="button is-primary is-light">Submit</button>
             </div>
-
         </form>
-
     </div>
 </section>
 
@@ -46,13 +38,11 @@
     <h2 class="title">List of People</h2>
     <div class="container" th:each="storedPerson : ${people}">
         <span th:inline="text">
-            Person #[[${storedPerson.id}]]: [[${storedPerson.firstName}]] [[${storedPerson.lastName}]]
+            <strong>Person #[[${storedPerson.id}]]:</strong> [[${storedPerson.firstName}]] [[${storedPerson.lastName}]]
         </span>
     </div>
     </div>
-
 </section>
-
 </body>
 </html>
 
