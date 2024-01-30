@@ -1,16 +1,21 @@
 # Unit_15_Spring_MVC
 
 ## 01 - Creating a Plain Old Controller
-- Added `@Controller` to our WelcomeController class and had it return "welcome"
-- Created `welcome.html` within Templates folder
-- Attached the two with the Thymeleaf dependency 
-- Start the app and we are able to go to `localhost:8080` and see Welcome on our HTML page
+- Within Spring MVC we built out the View and Controller
+
 
 ## 02 - Introduction to Thymeleaf and the Model
-- Introduced a small amount of Thymeleaf into the HTML
-- Needed to add an extra Thymeleaf property to **_applications.properties_**
-`spring.thymeleaf.prefix=file:src/main/resources/templates/`
-- Completed the MVC (Model View Controller) pieces
+- Spring MVC
+  - Model: A hashmap that takes key's and values that are passed to the View
+  - View: HTML pages and JPA's
+  - Controller: files within `web` package. File name will end in Controller.
+- Dynamically updated HTML using Thymeleaf within the HTML
+- Needed to add an extra Thymeleaf property to **_applications.properties_** to add content to HTML files without needing 
+to restart the server each time
+```Java
+spring.thymeleaf.prefix=file:src/main/resources/templates/
+```
+
 
 ## 03 - PostMapping with a Regular Controller
 - The domain package represents content that'll be going to the database
@@ -25,6 +30,7 @@
 ## 04 - Using Thymeleaf Fields
 
 ## 05 - Creating a PersonRepository
+- Controllers should not interact with repository they should only interact with services and routing
 
 ## 06 - Fetching Person Objects and Displaying
 
