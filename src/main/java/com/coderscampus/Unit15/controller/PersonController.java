@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class PersonController {
 // REMEMBER
@@ -20,6 +22,7 @@ public class PersonController {
 
     private PersonService personService;
 
+
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
@@ -28,10 +31,12 @@ public class PersonController {
     @GetMapping("/persons")
     //    Spring initializes the  (      model )  for us so we don't get a null pointer exception
     public String getPeople(ModelMap model) {
+        List<Person> people = personService.findAll();
         Person person = new Person();
         // Model: A hashmap that takes key's and values that are passed to the View
         //       (  key   , value );  onto the model
         model.put("person", person);
+        model.put("people", people);
         //  /src/main/resources/templates/{fileName}.html
         // return refers to the welcome.html file
         return "people";

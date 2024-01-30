@@ -4,6 +4,8 @@ import com.coderscampus.Unit15.domain.Person;
 import com.coderscampus.Unit15.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonService {
 
@@ -26,7 +28,8 @@ public class PersonService {
         return personRepository.findById(personId);
     }
 
-//    public Person updatePerson(Person person) {
-//
-//    }
+    public List<Person> findAll() {
+        return personRepository.findAll();
+    }
+
 }
