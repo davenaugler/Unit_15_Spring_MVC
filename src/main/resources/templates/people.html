@@ -15,32 +15,45 @@
         <h1 class="title">People</h1>
     </div>
     <div class="container">
-        <form action="" method="post">
+        <form action="" method="POST">
             <input th:field="${person.id}" type="hidden">
-            <div>
-                <label>First Name:</label>
-                <input th:field="${person.firstName}" type="text">
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    <input class="input" th:field="${person.firstName}" type="text" placeholder="First Name">
+                </div>
             </div>
-            <div>
-                <label>Last Name:</label>
-                <input th:field="${person.lastName}" type="text">
 
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    <input class="input" th:field="${person.lastName}" type="text" placeholder="Last Name">
+                </div>
             </div>
-            <div>
-                <button class="button is-primary is-light">Submit</button>
-            </div>
+<!--            If the person has an id the "Back" button will display-->
+            <a href="/persons" class="button is-success mt-2" th:if="${person.id != null}">Back</a>
+<!--            If the person does not have an id the button will display "Submit"-->
+<!--            If the person has an id then the button will display "Update"-->
+            <button class="button is-normal is-responsive is-info mt-2 ml-4" th:text="${person.id != null} ? 'Update' : 'Submit'"> Submit</button>
+
+        </form>
+        <form th:action="@{/persons/{personId}/delete(personId=${person.id})}" method="POST"
+              th:if="${person.id != null}">
+            <button class="button is-normal is-responsive is-danger mt-2">Delete</button>
         </form>
     </div>
 </section>
 
-<section class="section">
+<!--If persons has an id then this section will not be displayed-->
+<section class="section" th:if="${person.id == null}">
     <div class="container">
-    <h2 class="title">List of People</h2>
-    <div class="container" th:each="storedPerson : ${people}">
+        <h2 class="title">List of People</h2>
+        <div class="container" th:each="storedPerson : ${people}">
         <span th:inline="text">
-            <strong>Person #[[${storedPerson.id}]]:</strong> [[${storedPerson.firstName}]] [[${storedPerson.lastName}]]
+            <strong>Person #[[${storedPerson.id}]]:</strong>
+            <a th:href="@{/persons/{personId}(personId=${storedPerson.id})}">[[${storedPerson.firstName}]] [[${storedPerson.lastName}]]</a>
         </span>
-    </div>
+        </div>
     </div>
 </section>
 </body>

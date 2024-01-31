@@ -47,7 +47,7 @@ public class PersonController {
         // Controllers should not call repositories directly
         // Controllers just handle routing things around and work with services
         Person savedPerson = personService.save(person);
-        System.out.println("savedPerson: " + savedPerson);
+        System.out.println("Saved Person: " + savedPerson);
         // You'll either `redirect:/` or input another HTML page in the return
         return "redirect:/persons";
     }
@@ -62,10 +62,14 @@ public class PersonController {
     @PostMapping("/persons/{personId}")
     public String postPerson(Person person) {
         Person savedPerson = personService.save(person);
-        System.out.println("updatedPerson: " + savedPerson);
+        System.out.println("Updated Person: " + savedPerson);
         return "redirect:/persons/" + savedPerson.getId();
-
     }
 
+    @PostMapping("/persons/{personId}/delete")
+    public String deletePerson(@PathVariable Integer personId) {
+        personService.delete(personId);
+        return "redirect:/persons";
+    }
 
 }

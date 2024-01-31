@@ -32,4 +32,7 @@ public class PersonService {
         return personRepository.findAll();
     }
 
+    public void delete(Integer personId) {
+        personRepository.delete(personId);
+    }
 }
